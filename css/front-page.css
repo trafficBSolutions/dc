@@ -216,7 +216,7 @@ a {
   }
 
   .full-width-split__one {
-    background-color: silver;
+    background-color: #dcdcdc;
     padding: 40px;
     flex: 1;
   }
