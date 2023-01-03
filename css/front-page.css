@@ -293,7 +293,11 @@ a {
   color: black
 }
 
-.site_footer {
+footer {
+  color: red
+}
+
+.site-footer {
   padding: 2rem 0 3.5rem 0;
   background-image: linear-gradient(#fff, #ececec);
 }
@@ -310,15 +314,14 @@ a {
 .site-footer__col-one {
   text-align: left;
   width: 33%;
-  float: left;
 }
+
 
 .school-logo-text--alt-color a {
   color: #666;
 }
 
 .school-logo-text a {
-  color: #fff;
   text-decoration: none;
 }
 
