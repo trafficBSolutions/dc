@@ -10,4 +10,4 @@ import search from "modules/Search.js"
 const mobileMenu = new MobileMenu()
 const heroSlider = new HeroSlider()
 const googleM = new GoogleM()
-const sear = new search()
+const sear = new search();
