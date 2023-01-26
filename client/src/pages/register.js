@@ -1,24 +1,5 @@
 import {useState, useEffect } from 'react'
-import { GoogleMap, LoadScript, StandaloneSearchBox, Marker } from '@react-google-maps/api'
-const lib = ['places'];
-const mapContainerStyle = {
-  height: "400px",
-  width: "800px"
-}
-
-const center = {
-  lat: -3.745,
-  lng: -38.523
-};
-  
-const position = {
-  lat: 37.772,
-  lng: -122.214
-}
-
-const mark = marker => {
-  console.log('marker: ', marker)
-}
+import {GoogleMap, LoadScript, StandaloneSearchBox, Marker} from '@react-google-maps/api'
 
 
 
@@ -35,10 +16,7 @@ const initialState = {
     
     const [searchBox, setSearchBox] = useState(null);
 
-  const handlePlacesChanged = () => console.log(searchBox.getPlaces());
-  const handleLoad = ref => {
-    setSearchBox(ref);
-  };
+  
 
     
 
@@ -88,53 +66,70 @@ const initialState = {
           <div class="email-input">
           <input text="headline headline--input" placeholder="Enter Email"></input>
           </div>
-
-     <label class="company-map">Map</label>   
+          <label class="company-address">Company Address</label>
+          <div class="address-input">
+          <input text="headline headline--input" placeholder="Enter Address"></input>
+          </div>
+          <label class="company-city">City</label>
+          <div class="city-input">
+          <input text="headline headline--input" placeholder="Enter City"></input>
+          </div>
+          <label class="company-zip">Zip Code</label>
+          <div class="zip-input">
+          <input text="headline headline--input" placeholder="Enter Zip"></input>
+          </div>
+          <label class="company-description">Tell us about your company and what you do!</label>
+          <div class="description-input">
+          <textarea rows="5" cols="80" id="TITLE" text="headline headline--input" placeholder="Description"></textarea>
+          </div>
+          <label class="company-map">Map</label>   
 
     
   
-    <LoadScript
-    googleMapsApiKey='AIzaSyCn_r-c-ytXuGjJ-qS4CR9aD9i4-p4Vy6I'
-    libraries={lib}
-    >
-        <GoogleMap
-          mapContainerStyle={mapContainerStyle}
-          center={center}
-          zoom={10}
-        >
-          {/* Child components, such as markers, info windows, etc. */}
+          <LoadScript
+          googleMapsApiKey='AIzaSyCn_r-c-ytXuGjJ-qS4CR9aD9i4-p4Vy6I'
+          libraries={lib}
+          >
+              <GoogleMap
+                mapContainerStyle={mapContainerStyle}
+                center={center}
+                zoom={10}
+              >
+                {/* Child components, such as markers, info windows, etc. */}
+      
+                 <StandaloneSearchBox
+                onLoad={handleLoad}
+                onPlacesChanged={handlePlacesChanged}
+              >
+                
+                <input
+                  type="text"
+                  placeholder="Search"
+                  style={{
+                    boxSizing: `border-box`,
+                    border: `1px solid transparent`,
+                    width: `240px`,
+                    height: `32px`,
+                    padding: `0 12px`,
+                    borderRadius: `3px`,
+                    boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                    fontSize: `14px`,
+                    outline: `none`,
+                    textOverflow: `ellipses`,
+                    position: "absolute",
+                    left: "50%",
+                    marginLeft: "-120px"
+                  }}
+                />
+              </StandaloneSearchBox>
+      
+              <Marker
+              onLoad={mark}
+            position={position}/>
+              </GoogleMap>
+      </LoadScript>
 
-           <StandaloneSearchBox
-          onLoad={handleLoad}
-          onPlacesChanged={handlePlacesChanged}
-        >
-          
-          <input
-            type="text"
-            placeholder="Search"
-            style={{
-              boxSizing: `border-box`,
-              border: `1px solid transparent`,
-              width: `240px`,
-              height: `32px`,
-              padding: `0 12px`,
-              borderRadius: `3px`,
-              boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-              fontSize: `14px`,
-              outline: `none`,
-              textOverflow: `ellipses`,
-              position: "absolute",
-              left: "50%",
-              marginLeft: "-120px"
-            }}
-          />
-        </StandaloneSearchBox>
-
-        <Marker
-        onLoad={mark}
-      position={position}/>
-        </GoogleMap>
-</LoadScript>
+  
         </div>  
      
 
@@ -157,4 +152,6 @@ const initialState = {
   
 
 export default Register
+
+
 
