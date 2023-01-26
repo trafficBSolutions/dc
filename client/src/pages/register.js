@@ -1,6 +1,23 @@
 import {useState, useEffect } from 'react'
 import {GoogleMap, LoadScript, StandaloneSearchBox, Marker} from '@react-google-maps/api'
+const mapContainerStyle = {
+  height: "400px",
+  width: "800px"
+}
 
+const center = {
+  lat: -3.745,
+  lng: -38.523
+};
+  
+const position = {
+  lat: 37.772,
+  lng: -122.214
+}
+
+const mark = marker => {
+  console.log('marker: ', marker)
+}
 
 
 
