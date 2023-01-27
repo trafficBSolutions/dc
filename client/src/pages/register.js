@@ -1,5 +1,6 @@
 import {useState, useEffect } from 'react'
-import {GoogleMap, LoadScript, StandaloneSearchBox, Marker} from '@react-google-maps/api'
+import { GoogleMap, LoadScript, StandaloneSearchBox, Marker } from '@react-google-maps/api'
+const lib = ['places'];
 const mapContainerStyle = {
   height: "400px",
   width: "800px"
@@ -21,6 +22,7 @@ const mark = marker => {
 
 
 
+
 const initialState = {
   company: '',
   email: '',
@@ -33,7 +35,10 @@ const initialState = {
     
     const [searchBox, setSearchBox] = useState(null);
 
-  
+  const handlePlacesChanged = () => console.log(searchBox.getPlaces());
+  const handleLoad = ref => {
+    setSearchBox(ref);
+  };
 
     
 
@@ -169,6 +174,4 @@ const initialState = {
   
 
 export default Register
-
-
 
